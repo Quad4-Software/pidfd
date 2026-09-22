@@ -159,5 +159,5 @@ def pidfd_getfd(pidfd: int, targetfd: int, flags: int = 0) -> int:
 
 
 def waitid(idtype: int, upid: int, info: SigInfo, options: int) -> int:
-    """waitid(2) filling info; the rusage argument stays NULL."""
+    """waitid(2) filling info. The rusage argument stays NULL."""
     return _call(_syscall_numbers()[3], idtype, upid, ctypes.byref(info), options, 0)
