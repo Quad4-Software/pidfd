@@ -253,7 +253,7 @@ def test_close_only_closes_once() -> None:
 
 
 def test_del_closes_fd() -> None:
-    fd = os.open("/dev/null", os.O_RDONLY)
+    fd = os.dup(0)
     PidFd(fd)
     with pytest.raises(OSError, match="Bad file descriptor"):
         os.fstat(fd)
